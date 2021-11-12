@@ -4,23 +4,23 @@ for (const item of galleryItems) {
   const gallery = document.querySelector(".gallery");
 
   // creating div
-  const galleryImageDiv = document.createElement("div");
-  galleryImageDiv.className = "gallery__item";
-  gallery.append(galleryImageDiv);
+  const galleryDiv = document.createElement("div");
+  galleryDiv.className = "gallery__item";
+  gallery.append(galleryDiv);
 
   //creating link
   const galleryLink = document.createElement("a");
   galleryLink.className = "gallery__link";
   galleryLink.setAttribute("href", item.original);
-  galleryImageDiv.append(galleryLink);
+  galleryDiv.append(galleryLink);
 
   //creating image
-  const galleryImageImg = document.createElement("img");
-  galleryImageImg.className = "gallery__image";
-  galleryImageImg.setAttribute("src", item.preview);
-  galleryImageImg.setAttribute("data-source", item.original);
-  galleryImageImg.setAttribute("alt", item.description);
-  galleryLink.append(galleryImageImg);
+  const galleryImg = document.createElement("img");
+  galleryImg.className = "gallery__image";
+  galleryImg.setAttribute("src", item.preview);
+  galleryImg.setAttribute("data-source", item.original);
+  galleryImg.setAttribute("alt", item.description);
+  galleryLink.append(galleryImg);
 }
 
 //preventing default browser action on clicking a link
@@ -40,7 +40,7 @@ for (const image of galleryImage) {
     `,
     
     {onShow: (instance) => {document.addEventListener("keydown", function keyHandler(e) {
-      console.log(e);
+      //console.log(e);
       if (e.key === 'Escape') {
         instance.close();
         document.removeEventListener("keydown", keyHandler);
