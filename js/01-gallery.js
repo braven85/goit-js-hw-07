@@ -39,17 +39,11 @@ for (const image of galleryImage) {
     <img src="${image.getAttribute("data-source")}" width="100%" height="100%">
     `,
     
-    {onShow: (instance) => {document.addEventListener("keydown", event => {
-      console.log(event);
-      if (event.key === 'Escape') {
+    {onShow: (instance) => {document.addEventListener("keydown", function keyHandler(e) {
+      console.log(e);
+      if (e.key === 'Escape') {
         instance.close();
-      }
-    })},
-
-    onClose: (instance) => {document.removeEventListener("keydown", event => {
-      console.log(event);
-      if (event.key === 'Escape') {
-        instance.close();
+        document.removeEventListener("keydown", keyHandler);
       }
     })}
     });
